@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Platform">
+      <UniqueIdentifier>{875e2b6a-4d17-4026-b088-5527d44167cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="IO">
+      <UniqueIdentifier>{67be86f6-f441-4683-8552-fa65d9b5fcad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="filepath.h">
+      <Filter>IO</Filter>
+    </ClInclude>
+    <ClInclude Include="adg-string.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="adg-message.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="portable.h">
+      <Filter>Platform</Filter>
+    </ClInclude>
+    <ClInclude Include="adg-util-gen.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="adg-util.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="adg-stl-util.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="filepath.cpp">
+      <Filter>IO</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
