@@ -61,7 +61,8 @@ DirectoryIteratorImpl::DirectoryIteratorImpl(const std::string& path): _fh(INVAL
 	if (_fh == INVALID_HANDLE_VALUE)
 	{
 		if (GetLastError() != ERROR_NO_MORE_FILES)
-			File::handleLastError(path);
+			if(Path(path).isJunction()) next();
+			//File::handleLastError(path);
 	}
 	else
 	{

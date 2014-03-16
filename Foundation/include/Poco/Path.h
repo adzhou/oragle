@@ -204,6 +204,8 @@ public:
 	bool isDirectory() const;
 		/// Returns true iff the path references a directory
 		/// (the filename part is empty).
+
+	bool isJunction() const;
 		
 	bool isFile() const;
 		/// Returns true iff the path references a file
@@ -394,6 +396,14 @@ inline bool Path::isRelative() const
 inline bool Path::isDirectory() const
 {
 	return _name.empty();
+}
+
+inline bool Path::isJunction() const
+{
+	
+	DWORD attr = GetFileAttributes(buildWindows().c_str());
+	if (attr == 0xFFFFFFFF) return false;
+	return (attr & FILE_ATTRIBUTE_REPARSE_POINT & FILE_ATTRIBUTE_HIDDEN & FILE_ATTRIBUTE_SYSTEM) != 0;
 }
 
 

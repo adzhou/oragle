@@ -183,11 +183,27 @@ bool FileImpl::isDirectoryImpl() const
 }
 
 
+
 bool FileImpl::isLinkImpl() const
 {
-	return false;
+    poco_assert (!_path.empty());
+	
+	DWORD attr = GetFileAttributes(_path.c_str());
+	if (attr == 0xFFFFFFFF)
+		handleLastErrorImpl(_path);
+	//If you use the FindFirstFile function, you can tell that you have a symbolic link because the file attributes will have the FILE_ATTRIBUTES_REPARSE_POINT flag set, and the dwReserved0 member will contain the special value IO_REPARSE_TAG_SYMLINK.
+	return (attr & FILE_ATTRIBUTE_SPARSE_FILE) != 0;
 }
 
+bool FileImpl::isJunctionImpl() const
+{
+    poco_assert(!_path.empty());
+	
+	DWORD attr = GetFileAttributes(_path.c_str());
+	if (attr == 0xFFFFFFFF)
+		handleLastErrorImpl(_path);
+	return (attr & FILE_ATTRIBUTE_REPARSE_POINT & FILE_ATTRIBUTE_HIDDEN & FILE_ATTRIBUTE_SYSTEM) != 0;
+}
 
 bool FileImpl::isDeviceImpl() const
 {

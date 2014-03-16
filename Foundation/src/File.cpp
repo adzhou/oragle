@@ -165,6 +165,10 @@ bool File::isLink() const
 	return isLinkImpl();
 }
 
+bool File::isJunction() const
+{
+	return isJunctionImpl();
+}
 
 bool File::isDevice() const
 {

@@ -132,6 +132,8 @@ public:
 		
 	bool isLink() const;
 		/// Returns true iff the file is a symbolic link.
+
+	bool isJunction() const;
 		
 	bool isDirectory() const;
 		/// Returns true iff the file is a directory.
